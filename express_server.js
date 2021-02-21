@@ -15,7 +15,7 @@ app.use((req, res, next) => {
 // Handle POST requests that come in formatted as JSON
 app.use(express.json())
 // A default hello word route
-app.get('/', (req, res) => {
+app.get('/', (req, res,next) => {
     res.send(
     {item1:{
     	name:'phet',
@@ -33,6 +33,9 @@ app.get('/', (req, res) => {
     	age:'20'
     }});
 });
+app.post('/test', function(req, res, next){
+    console.log(req.body);
+ });
 // start our server on port 4201
 app.listen(4201, '127.0.0.1', function() {
     console.log("Server now listening on 4201");
